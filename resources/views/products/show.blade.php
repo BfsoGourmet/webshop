@@ -6,13 +6,13 @@
     <table class="table table-sm">
         <thead>
         <tr>
-            <th scope="col">Property</th>
-            <th scope="col">Value</th>
+            <th scope="col">{{__('catalog.property')}}</th>
+            <th scope="col">{{__('catalog.value')}}</th>
         </tr>
         </thead>
         <tbody>
         <tr>
-            <td>{{__('catalog.price')}}</td>
+            <td>{{__('product.price')}}</td>
             <td>CHF {{$product->price}}</td>
         </tr>
         </tbody>
@@ -20,14 +20,16 @@
     <br>
     <br>
 
+    <div class="form-group">
+        <a href="{{route('products.edit',['product'=>$product])}}">
+            <button class="btn btn-light">{{__('form.edit')}}</button>
+        </a>
+    </div>
+
     <form method="POST" action="{{route('products.destroy',['product'=>$product])}}">
         @csrf
         {{ method_field('DELETE') }}
-        <div class="form-group">
-            <a href="{{route('products.edit',['product'=>$product])}}">
-                <button class="btn btn-light">{{__('form.edit')}}</button>
-            </a>
-        </div>
+
         <div class="form-group">
             <input type="submit" class="btn btn-light" value="{{__('form.destroy')}}">
         </div>

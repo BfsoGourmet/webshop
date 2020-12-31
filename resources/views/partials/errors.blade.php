@@ -1,3 +1,5 @@
 @if($errors->any())
-    {!! implode('', $errors->all('<div>:message</div>')) !!}
+    <div class="alert alert-danger" role="alert">
+        {!! implode('', $errors->all('<div>:message</div>')) !!}
+    </div>
 @endif

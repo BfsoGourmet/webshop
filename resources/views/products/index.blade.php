@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Products</h1>
+    @include('partials.messages')
+
+    <h1>{{__('product.products')}}</h1>
 
     {{ $products->links() }}
 
@@ -9,8 +11,8 @@
         <thead>
         <tr>
             <th scope="col">#</th>
-            <th scope="col">{{__('catalog.name')}}</th>
-            <th scope="col">{{__('catalog.price')}}</th>
+            <th scope="col">{{__('product.name')}}</th>
+            <th scope="col">{{__('product.price')}}</th>
             <th scope="col">{{__('catalog.categories')}}</th>
             <th scope="col">{{__('form.edit')}}</th>
             <th scope="col">{{__('form.destroy')}}</th>
