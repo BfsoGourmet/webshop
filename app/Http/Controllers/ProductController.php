@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProductRequest;
+use App\Models\Category;
 use App\Models\Product;
 use Exception;
 use Illuminate\Contracts\View\View;
@@ -24,7 +25,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('products.create');
+        $categories = Category::get();
+        return view('products.create',['categories'=>$categories]);
     }
 
     /**
@@ -37,7 +39,7 @@ class ProductController extends Controller
         $product->name = $request->name;
         $product->price = $request->price;
         $product->save();
-
+        $product->categories()->sync($request->categories);
         return redirect(route('products.index'))->withSuccess(__('form.successfully-stored'));
     }
 
@@ -56,7 +58,8 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        return view('products.edit',['product'=>$product]);
+        $categories = Category::get();
+        return view('products.edit',['product'=>$product,'categories'=>$categories]);
     }
 
     /**
@@ -69,7 +72,7 @@ class ProductController extends Controller
         $product->name = $request->name;
         $product->price = $request->price;
         $product->save();
-
+        $product->categories()->sync($request->categories);
         return redirect(route('products.index'))->withSuccess(__('form.successfully-updated'));
     }
 

@@ -44,6 +44,12 @@
                             Products <span class="sr-only">(products)</span>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{{route('categories.index')}}">
+                            <span data-feather="home"></span>
+                            Categories <span class="sr-only">(categories)</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </nav>

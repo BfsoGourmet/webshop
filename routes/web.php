@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,5 +22,6 @@ Route::get('/', function () {
 Route::resources(
     [
         'products' => ProductController::class,
+        'categories' => CategoryController::class,
     ]
 );

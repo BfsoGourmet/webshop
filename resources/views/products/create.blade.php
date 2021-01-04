@@ -15,6 +15,14 @@
             <label for="price">{{__('product.price')}}:</label>
             <input class="form-control" type="text" name="price" id="price" value="{{ old('price') }}">
         </div>
+        <div class="form-group">
+            <label for="categories">{{__('product.category')}}:</label>
+            <select name="categories[]" id="categories" multiple>
+                @foreach($categories as $category)
+                <option value="{{$category->id}}">{{$category->name}}</option>
+                @endforeach
+            </select>
+        </div>
         <input type="submit" id="submit" class="btn btn-primary">
     </form>
 @stop

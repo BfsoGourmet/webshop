@@ -6,4 +6,5 @@ return [
     'name' => 'name',
     'price' => 'price',
     'description' => 'description',
+    'category' => 'category',
 ];

@@ -3,49 +3,38 @@
 @section('content')
     @include('partials.messages')
 
-    <h1>{{__('product.products')}}</h1>
+    <h1>{{__('category.categories')}}</h1>
 
-    {{ $products->links() }}
+    {{ $categories->links() }}
 
     <table class="table">
         <thead>
         <tr>
             <th scope="col">#</th>
-            <th scope="col">{{__('product.name')}}</th>
-            <th scope="col">{{__('product.price')}}</th>
-            <th scope="col">{{__('catalog.categories')}}</th>
+            <th scope="col">{{__('category.name')}}</th>
             <th scope="col">{{__('form.edit')}}</th>
             <th scope="col">{{__('form.destroy')}}</th>
         </tr>
         </thead>
         <tbody>
 
-        @foreach($products as $product)
+        @foreach($categories as $category)
             <tr>
                 <th scope="row">
-                    {{$product->id}}
+                    {{$category->id}}
                 </th>
                 <td>
-                    <a href="{{route('products.show',['product'=>$product])}}">
-                        {{$product->name}}
+                    <a href="{{route('categories.show',['category'=>$category])}}">
+                        {{$category->name}}
                     </a>
                 </td>
                 <td>
-                    CHF {{$product->price}}
-                </td>
-                <td>
-                    @foreach($product->categories as $category)
-                        {{$category->name}}
-                        @if (!$loop->last),@endif
-                    @endforeach
-                </td>
-                <td>
-                    <a href="{{route('products.edit',['product'=>$product])}}">
+                    <a href="{{route('categories.edit',['category'=>$category])}}">
                         <button class="btn btn-light">{{__('form.edit')}}</button>
                     </a>
                 </td>
                 <td>
-                    <form method="POST" action="{{route('products.destroy',['product'=>$product])}}">
+                    <form method="POST" action="{{route('categories.destroy',['category'=>$category])}}">
                         @csrf
                         {{ method_field('DELETE') }}
                         <div class="form-group">
@@ -58,7 +47,7 @@
         </tbody>
     </table>
 
-    <a href="{{route('products.create')}}" id="create-product-link">
+    <a href="{{route('categories.create')}}" id="create-category-link">
         <button class="btn btn-success">{{__('form.create')}}</button>
     </a>
 @stop
