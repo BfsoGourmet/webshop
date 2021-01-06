@@ -12,6 +12,8 @@
     <!-- Styles -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
           integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="app.css">
 </head>
 <body>
 {{--<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">--}}
@@ -48,6 +50,18 @@
                         <a class="nav-link active" href="{{route('categories.index')}}">
                             <span data-feather="home"></span>
                             Categories <span class="sr-only">(categories)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{{route('rebates.index')}}">
+                            <span data-feather="home"></span>
+                            Rebates <span class="sr-only">(rebates)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{{route('jobs.index')}}">
+                            <span data-feather="home"></span>
+                            Jobs <span class="sr-only">(jobs)</span>
                         </a>
                     </li>
                 </ul>

@@ -13,6 +13,7 @@
             <th scope="col">#</th>
             <th scope="col">{{__('product.name')}}</th>
             <th scope="col">{{__('product.price')}}</th>
+            <th scope="col">{{__('product.special_price')}}</th>
             <th scope="col">{{__('catalog.categories')}}</th>
             <th scope="col">{{__('form.edit')}}</th>
             <th scope="col">{{__('form.destroy')}}</th>
@@ -32,6 +33,12 @@
                 </td>
                 <td>
                     CHF {{$product->price}}
+                </td>
+                <td>
+                      CHF {{$product->special_price ?: 'N/A' }}
+                    @if($product->special_price)
+                    @else
+                    @endif
                 </td>
                 <td>
                     @foreach($product->categories as $category)

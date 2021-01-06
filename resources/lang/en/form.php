@@ -9,4 +9,5 @@ return [
     'successfully-stored' => 'successfully stored',
     'successfully-updated' => 'successfully updated',
     'successfully-deleted' => 'successfully deleted',
+    'successfully-rebated' => 'submitted rebate, will be applied shortly'
 ];

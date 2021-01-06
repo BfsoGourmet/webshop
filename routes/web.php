@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\JobController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\RebateController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,5 +25,7 @@ Route::resources(
     [
         'products' => ProductController::class,
         'categories' => CategoryController::class,
+        'rebates' => RebateController::class,
+        'jobs' => JobController::class,
     ]
 );
