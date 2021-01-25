@@ -22,6 +22,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::prefix('v1')->group(function () {
     Route::prefix('categories')->group(function () {
         Route::get('', [ApiCategoryController::class,'index']);
+        Route::get('{category}', [ApiCategoryController::class,'show']);
+        Route::post('',[ApiCategoryController::class,'store']);
+        Route::patch('{category}',[ApiCategoryController::class,'update']);
+        Route::delete('{category}',[ApiCategoryController::class,'destroy']);
     });
 });
-
