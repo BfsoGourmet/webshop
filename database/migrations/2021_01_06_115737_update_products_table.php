@@ -14,7 +14,7 @@ class UpdateProductsTable extends Migration
     public function up()
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->double('special_price');
+            $table->double('special_price')->nullable();
         });
     }
 
