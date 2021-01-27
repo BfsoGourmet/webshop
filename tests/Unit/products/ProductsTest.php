@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit;
+namespace Tests\Unit\products;
 
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\DB;
@@ -18,8 +18,7 @@ class ProductsTest extends TestCase {
         parent::setUp();
         $this->app = $this->createApplication();
         $this->setUpFaker();
-        $this->app->make('Illuminate\Database\Eloquent\Factory')->load(__DIR__ . '/../../database/factories');
-        DB::beginTransaction();
+        //DB::beginTransaction();
     }
 
     /**
@@ -37,7 +36,7 @@ class ProductsTest extends TestCase {
     }
 
     public function tearDown(): void {
-        DB::rollBack();
+        //DB::rollBack();
         parent::tearDown();
     }
 }
