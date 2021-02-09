@@ -18,4 +18,9 @@ class ApiOrderController extends Controller
             return order::get();
         }
     }
+
+    public function show(order $order)
+    {
+        return $order;
+    }
 }
