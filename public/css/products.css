@@ -21,6 +21,8 @@
     background-position-y: inherit;
 }
 
+
+
 .site-header {
     background-color: rgba(0, 0, 0, .85);
     -webkit-backdrop-filter: saturate(180%) blur(20px);
@@ -100,3 +102,120 @@
 }
 
 .overflow-hidden { overflow: hidden; }
+
+#productContainter{
+    display: flex;
+    margin: 15px 0 15px 0;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.customBorder{
+    border: 5px solid #dee2e6!important;
+    padding: 2px 10px;
+}
+
+
+/* Product Card*/
+.card{
+    position: relative;
+    width: 256px;/*old 320px*/
+    height: 336px;/*old 420px*/
+    background: #323232 !important;
+    border-radius: 20px!important;
+    overflow: hidden;
+    margin: 20px 10px 20px 10px;
+}
+.card::before{
+    content: '';
+    position: absolute;
+    top: -50%;
+    width: 100%;
+    height: 100%;
+    background: #989898;
+    transform: skewY(345deg);
+    transition: 0.5s;
+}
+.card:hover::before{
+    top: -70%;
+    transform: skewY(390deg);
+}
+.card::after{
+    content: "G'Vs";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-weight: 600;
+    font-size: 8em;
+    color: rgb(0,0,0,0.1);
+}
+.card .imgBox{
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+    z-index: 1;
+}
+.card .imgBox img{
+    width: 300px;
+    max-width: 100%;
+    transition: .5s;
+}
+.card:hover .imgBox img{
+    width:250px;
+    margin-top:-20px;
+}
+
+.card .contentBx{
+    position: relative;
+    padding-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 1;
+}
+.card .contentBx h3{
+    font-size: 21px;
+    color: #fff;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.card .contentBx .price{
+    font-size: 24px;
+    color: white;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+.card .contentBx .details{
+    position: relative;
+    top: 200px;
+    opacity: 0;
+    padding: 10px 30px;
+    margin-top: 15px;
+    color: #fff;
+    text-decoration: none;
+    background:#842029;
+    border-radius: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.5s;
+}
+.card:hover .contentBx .details{
+    top: 0;
+    opacity: 2;
+}
+.page-link{
+    color: #842029;
+}
+.page-link:hover{
+    color: #e41729;
+}
+a{
+    color: #842029;
+}
+a:hover{
+    color: #e41729;
+}
