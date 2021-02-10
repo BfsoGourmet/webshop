@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDeclarationsTable extends Migration
+class CreateCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateDeclarationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('declarations', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->string('allergens');
+            $table->string('category');
         });
     }
 
@@ -26,6 +26,6 @@ class CreateDeclarationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('declarations');
+        Schema::dropIfExists('categories');
     }
 }
