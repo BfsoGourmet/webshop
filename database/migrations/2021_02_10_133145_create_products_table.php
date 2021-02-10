@@ -25,6 +25,7 @@ class CreateProductsTable extends Migration
             $table->string('slug');
             $table->string('declaration');
             $table->foreignId('manufacturer_id')->constrained();
+            $table->timestamps();
         });
     }
 

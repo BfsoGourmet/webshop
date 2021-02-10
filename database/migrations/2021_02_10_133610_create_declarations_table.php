@@ -16,6 +16,7 @@ class CreateDeclarationsTable extends Migration
         Schema::create('declarations', function (Blueprint $table) {
             $table->id();
             $table->string('allergen');
+            $table->timestamps();
         });
     }
 

@@ -18,6 +18,7 @@ class CreateSpecialPrizesTable extends Migration
             $table->foreignId('product_id')->constrained();
             $table->date('start');
             $table->date('end');
+            $table->timestamps();
         });
     }
 
