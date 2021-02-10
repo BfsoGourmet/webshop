@@ -22,7 +22,13 @@ class ManufacturerFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'company'=> $this->faker->name,
+            'email' => $this->faker->companyEmail,
+            'phone' => $this->faker->phoneNumber,
+            'address' => $this->faker->streetAddress,
+            'zipcode' => $this->faker->randomNumber(6),
+            'city' => $this->faker->city,
+            'country' => $this->faker->country,
         ];
     }
 }
