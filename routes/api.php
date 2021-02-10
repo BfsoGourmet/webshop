@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Api\V1\ApiCategoryController;
+use App\Http\Controllers\Api\V1\ApiProductController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -33,13 +35,13 @@ Route::prefix('v1')->group(function () {
         Route::patch('{product}',[ApiProductController::class,'update']);
         Route::delete('{product}',[ApiProductController::class,'destroy']);
     });
-    Route::prefix('manufacturers')->group(function () {
-        Route::get('', [ApiManufacturerController::class,'index']);
-        Route::get('{manufacturer}', [ApiManufacturerController::class,'show']);
-        Route::post('',[ApiManufacturerController::class,'store']);
-        Route::patch('{manufacturer}',[ApiManufacturerController::class,'update']);
-        Route::delete('{manufacturer}',[ApiManufacturerController::class,'destroy']);
-    });
+//    Route::prefix('manufacturers')->group(function () {
+//        Route::get('', [ApiManufacturerController::class,'index']);
+//        Route::get('{manufacturer}', [ApiManufacturerController::class,'show']);
+//        Route::post('',[ApiManufacturerController::class,'store']);
+//        Route::patch('{manufacturer}',[ApiManufacturerController::class,'update']);
+//        Route::delete('{manufacturer}',[ApiManufacturerController::class,'destroy']);
+//    });
 });
 
 

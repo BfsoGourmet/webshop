@@ -13,12 +13,13 @@ class CategoryController extends Controller
 
     public function index()
     {
-        
+        $categories = Category::paginate(15);
+        return view('categories.index',['categories'=>$categories]);
     }
 
     public function create()
     {
-
+        return view('categories.create');
     }
 
     public function store(CategoryRequest $request)
@@ -26,16 +27,19 @@ class CategoryController extends Controller
         $category = new Category();
         $category->name = $request->name;
         $category->save();
+
+        return redirect(view('categories.index'))->with;
     }
 
 
     public function show(Category $category)
     {
+
     }
 
     public function edit(Category $category)
     {
-        
+
     }
 
     public function update(CategoryRequest $request, Category $category)
