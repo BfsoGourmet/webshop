@@ -31,7 +31,7 @@ class order extends Model
         return $this->belongsTo('App\Models\address', 'billing_address');
     }
 
-    public function product_orders(){
+    public function productOrders(){
         return $this->hasMany('App\Models\product_order');
     }
 }
