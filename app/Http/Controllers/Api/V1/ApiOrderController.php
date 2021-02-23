@@ -12,10 +12,10 @@ class ApiOrderController extends Controller
     {
         $last_order_id = $request->get('last_order_id');
         if ($last_order_id) {
-            return order::where('id', '>', $last_order_id)->get();
+            return order::where('id', '>', $last_order_id)->with('product_orders', 'customer', 'status', 'shippingAddress', 'billingAddress')->get();
         }
         else {
-            return order::get();
+            return order::with('product_orders', 'customer', 'status', 'shippingAddress', 'billingAddress')->get();
         }
     }
 
