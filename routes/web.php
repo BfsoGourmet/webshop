@@ -18,7 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/checkout', [CheckoutController::class, 'create'])
-    ->name('checkout.index');
+Route::get('/checkout', [CheckoutController::class, 'create']);
 
 Route::post('/checkout', [CheckoutController::class, 'store']);
+

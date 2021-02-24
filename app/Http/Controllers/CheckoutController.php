@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\CheckoutRequest;
 
 class CheckoutController extends Controller
 {
@@ -10,11 +10,8 @@ class CheckoutController extends Controller
         return view('checkout');
     }
 
-    public function store(Request $request) {
-        $validated = $request->validate([
-            'name' => 'required|unique:posts|max:255',
-            'body' => 'required',
-        ]);
+    public function store(CheckoutRequest $request) {
+        var_dump($request);
     }
 
 }
