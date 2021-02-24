@@ -17,5 +17,5 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');;
 Route::get('/shop', function () {
-    return view('shop/index');
+    return view('categories/index');
 })->name('shop_index');;

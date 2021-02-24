@@ -1,36 +1,5 @@
-
-<!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="description" content="">
-        <meta name="author" content="">
-        <link rel="icon" href="{{asset('Logo-f.png')}}">
-
-        <title>Gourmet vs</title>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-        <!-- Custom styles for this template -->
-        <link rel="stylesheet" href="{{asset('css/products.css')}}">
-    </head>
-
-    <body>
-
-        <nav class="site-header sticky-top py-1">
-            <div class="container d-flex flex-column flex-md-row justify-content-between">
-                <a class="py-2" href="#">
-                    <img src="{{ asset('Logoweiss.png') }}" width="45px"height="45px">
-                </a>
-
-                <a class="py-2 hd-font d-md-inline-block" href="{{route('welcome')}}"><b>Home</b></a>
-                <a class="py-2 hd-font d-md-inline-block" href="{{route('shop_index')}}"><b>Shop</b></a>
-                <a class="py-2 hd-font d-md-inline-block" href="#"><b>About</b></a>
-                <a class="py-2 hd-font d-md-inline-block" href="#"><b>Warenkorb</b></a>
-            </div>
-        </nav>
+@extends('layouts.app')
+@section('content')
         <!--<div class="row">
             <div id="sidebar" class="col-2" style="background-color: #333333">
 
@@ -254,13 +223,4 @@
                     </ul>
                 </div>
             </div>
-        </footer>
-
-
-        <!-- Bootstrap core JavaScript
-        ================================================== -->
-        <!-- Placed at the end of the document so the pages load faster -->
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-
-    </body>
-</html>
+@stop
