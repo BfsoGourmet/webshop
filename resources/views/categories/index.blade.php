@@ -1,6 +1,9 @@
 @extends('layouts.app')
 @section('content')
-        <!--<div class="row">
+
+    {{ $products->links() }}
+
+    <!--<div class="row">
             <div id="sidebar" class="col-2" style="background-color: #333333">
 
             </div>
@@ -8,6 +11,8 @@
 
             </div>
         </div>-->
+
+
         <div id="mainContent" class="offset-md-1 col-10">
             <div id="filterBar">
                 <div class="input-group mb-4 customBorder rounded-pill">
@@ -17,17 +22,20 @@
                     </div>
                 </div>
             </div>
+
             <div id="productContainter"> <!-- here will be an Foreach to load the produts-->
+                @foreach($products as $product)
                 <div class="card">
                     <div class="imgBox">
                         <a herf="#"><img src="https://i.ibb.co/YNVDKW3/nike101.png" alt="[ProdImg]" border="0"></a>
                     </div>
                     <div class="contentBx">
-                        <h3 class="productName">[Productname]</h3>
-                        <h2 class="price">CHF&nbsp;<span class="productPrice">[Price]</span></h2>
+                        <h3 class="productName">{{$product->title}}</h3>
+                        <h2 class="price">CHF&nbsp;<span class="productPrice">{{$product->price}}</span></h2>
                         <a href="#" class="details">Anzeigen</a>
                     </div>
                 </div>
+                @endforeach
                 <div class="card">
                     <div class="imgBox">
                         <a herf="#"><img src="https://i.ibb.co/YNVDKW3/nike101.png" alt="nike101" border="0"></a>
