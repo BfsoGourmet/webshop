@@ -2,25 +2,15 @@
 
 namespace Tests\Unit\products;
 
-use Illuminate\Foundation\Testing\WithFaker;
-use PHPUnit\Framework\TestCase;
-use App\Models\Product;
-use Tests\CreatesApplication;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
+use App\Models\Product;
+use Tests\TestCase;
 
 class ProductsTest extends TestCase {
-    use CreatesApplication;
+    use RefreshDatabase;
     use WithFaker;
     use RefreshDatabase;
-
-    protected $app;
-
-    protected function setUp(): void {
-        parent::setUp();
-        $this->app = $this->createApplication();
-        $this->setUpFaker();
-        //DB::beginTransaction();
-    }
 
     /**
      * @test
@@ -34,10 +24,5 @@ class ProductsTest extends TestCase {
         $storedProduct = Product::where('id', $newProduct->id)->first();
         $this->assertEquals($newProduct->name, $storedProduct->name);
         $this->assertEquals($newProduct->price, $storedProduct->price);
-    }
-
-    public function tearDown(): void {
-        //DB::rollBack();
-        parent::tearDown();
     }
 }
