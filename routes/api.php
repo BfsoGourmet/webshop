@@ -23,14 +23,14 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::prefix('v1')->group(function () {
     Route::prefix('categories')->group(function () {
         Route::get('', [ApiCategoryController::class,'index']);
-        Route::get('{category}', [ApiCategoryController::class,'show']);
+        Route::get('{uid}', [ApiCategoryController::class,'show']);
         Route::post('',[ApiCategoryController::class,'store']);
-        Route::patch('{category}',[ApiCategoryController::class,'update']);
-        Route::delete('{category}',[ApiCategoryController::class,'destroy']);
+        Route::patch('{uid}',[ApiCategoryController::class,'update']);
+        Route::delete('{uid}',[ApiCategoryController::class,'destroy']);
     });
     Route::prefix('products')->group(function () {
         Route::get('', [ApiProductController::class,'index']);
-        Route::get('{product}', [ApiProductController::class,'show']);
+        Route::get('{article_number}', [ApiProductController::class,'show']); // TODO: change product to artikelnummer
         Route::post('',[ApiProductController::class,'store']);
         Route::patch('{product}',[ApiProductController::class,'update']);
         Route::delete('{product}',[ApiProductController::class,'destroy']);

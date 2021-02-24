@@ -14,27 +14,30 @@ class ApiCategoryController extends Controller
         return Category::get();
     }
 
-    public function show(Category $category)
+    public function show(int $uid)
     {
-        return $category;
+        return Category::where('uid',$uid)->first();
     }
 
     public function store(CategoryRequest $request){
         $category = new Category();
+        $category->uid = $request->uid;
         $category->name = $request->name;
         $category->save();
         return $category;
     }
 
-    public function update(CategoryRequest $request, Category $category)
+    public function update(CategoryRequest $request, int $uid)
     {
+        $category = Category::where('uid',$uid)->first();
         $category->name = $request->name;
         $category->save();
         return $category;
     }
 
-    public function destroy(Category $category)
+    public function destroy(int $uid)
     {
+        $category = Category::where('uid',$uid)->first();
         $category->delete();
         return ['response'=>'successful'];
     }
