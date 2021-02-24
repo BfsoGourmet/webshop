@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Product;
 use App\Models\SpecialPrize;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -22,7 +23,9 @@ class SpecialPrizeFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'product_id' => Product::factory(),
+            'start' => $this->faker->date(),
+            'end' => $this->faker->date(),
         ];
     }
 }

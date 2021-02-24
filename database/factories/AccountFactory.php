@@ -22,7 +22,8 @@ class AccountFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'username'=> $this->faker->unique()->userName,
+            'password' => $this->faker->password,
         ];
     }
 }

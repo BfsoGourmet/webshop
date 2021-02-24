@@ -22,7 +22,7 @@ class DeclarationFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'allergen' => $this->faker->unique()->word,
         ];
     }
 }

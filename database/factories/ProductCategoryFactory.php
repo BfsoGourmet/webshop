@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Category;
+use App\Models\Product;
 use App\Models\ProductCategory;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -22,7 +24,8 @@ class ProductCategoryFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'product_id' => Product::factory(),
+            'category_id' => Category::factory(),
         ];
     }
 }
