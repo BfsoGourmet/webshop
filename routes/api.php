@@ -22,6 +22,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::prefix('v1')->group(function () {
     Route::prefix('orders')->group(function () {
         Route::get('', [ApiOrderController::class,'index']);
-        Route::get('{order}', [ApiOrderController::class,'show']);
+        Route::get('{order_id}', [ApiOrderController::class,'show']);
     });
 });
