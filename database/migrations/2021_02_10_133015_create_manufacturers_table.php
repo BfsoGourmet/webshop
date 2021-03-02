@@ -22,6 +22,7 @@ class CreateManufacturersTable extends Migration
             $table->string('zipcode');
             $table->string('city');
             $table->string('country');
+            $table->timestamps();
         });
     }
 

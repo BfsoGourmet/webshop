@@ -21,6 +21,7 @@ class CreateOrdersTable extends Migration
             $table->foreign('shipping_address')->references('id')->on('addresses');
             $table->unsignedBigInteger('billing_address');
             $table->foreign('billing_address')->references('id')->on('addresses');
+            $table->timestamps();
         });
     }
 
