@@ -20,6 +20,7 @@ class CreateAddressesTable extends Migration
             $table->string('city');
             $table->string('country');
             $table->foreignId('customer_id')->constrained();
+            $table->timestamps();
         });
     }
 
