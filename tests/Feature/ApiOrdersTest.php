@@ -2,14 +2,8 @@
 
 namespace Tests\Feature;
 
-use App\Models\account;
-use App\Models\address;
-use App\Models\customer;
-use App\Models\order;
-use App\Models\status;
+use App\Models\ProductOrder;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class ApiOrdersTest extends TestCase
@@ -20,46 +14,28 @@ class ApiOrdersTest extends TestCase
      * @return void
      * @test
      */
-    public function get_all_orders()
+    public function get_all_orders_from_last_order_id()
     {
-        $account = new account();
-        $account->username = "Test";
-        $account->password = "Test1234";
-        $account->save();
+        $orders = ProductOrder::factory(10)->create()->map(function ($product_order) {
+            return [
+                'id' => $product_order->order->id,
+                'customer' => $product_order->order->customer->only(['id', 'email', 'phone', 'firstname', 'lastname']),
+                'status' => $product_order->order->status->only(['id', 'state']),
+                'shipping_address' => $product_order->order->shippingAddress->only(['id', 'address', 'zipcode', 'city', 'country', 'customer_id']),
+                'billing_address' => $product_order->order->billingAddress->only(['id', 'address', 'zipcode', 'city', 'country', 'customer_id']),
+                'product_orders' => $product_order->order->productOrders->toArray(),
+            ];
+        });
 
-        $customer = new customer();
-        $customer->email = "test@test.ch";
-        $customer->phone = "012345678";
-        $customer->firstname = "Test";
-        $customer->lastname = "Hans";
-        $customer->account_id = $account->id;
-        $customer->save();
-
-        $status = new status();
-        $status->state = "Ordered";
-        $status->save();
-
-        $address = new address();
-        $address->address = "Hauptstrasse 27";
-        $address->zipcode = "3900";
-        $address->city = "Brig";
-        $address->country = "Schweiz";
-        $address->customer_id = $customer->id;
-        $address->save();
-
-        $order = new order();
-        $order->customer_id = $customer->id;
-        $order->status_id = $status->id;
-        $order->shipping_address = $address->id;
-        $order->billing_address = $address->id;
-        $order->save();
-
-        $response = $this->getJson('/api/v1/orders', []);
+        # Get the last order id
+        $last_order_id = $orders[0]['id'] - 1;
+        $response = $this->getJson('/api/v1/orders?last_order_id=' . $last_order_id, []);
 
         $response
             ->assertStatus(200)
-            ->assertJson([
-                'name' => 'Sally',
+            ->assertJson($orders->toArray())
+            ->assertJsonStructure([
+                '*' => [ 'id', 'customer', 'status', 'shipping_address', 'billing_address', 'product_orders'],
             ]);
     }
 

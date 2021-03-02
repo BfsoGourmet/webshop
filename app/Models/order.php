@@ -32,6 +32,6 @@ class Order extends Model
     }
 
     public function productOrders(){
-        return $this->hasMany('App\Models\product_order');
+        return $this->hasMany('App\Models\ProductOrder');
     }
 }
