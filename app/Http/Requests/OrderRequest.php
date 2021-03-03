@@ -29,7 +29,7 @@ class OrderRequest extends FormRequest
     public function rules()
     {
         return [
-            'last_order_id' => 'integer|min:1',
+            'last_order_id' => 'integer|min:0',
         ];
     }
 }
