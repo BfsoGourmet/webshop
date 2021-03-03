@@ -15,21 +15,17 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->string('product');
             $table->string('description');
-            $table->float('price');
-
+            $table->double('price');
             $table->boolean('vegan');
             $table->boolean('vegetarian');
-            $table->float('special_price');
-            $table->date('specia_price_start');
-            $table->date('specia_price_end');
             $table->string('article_number');
-            $table->string('picture'); //asked about this
+            $table->string('picture');
             $table->string('slug');
             $table->string('declaration');
-            $table->integer('availability');
-            $table->integer('manufacturer_id'); // foreign key
+            $table->foreignId('manufacturer_id')->constrained();
+            $table->timestamps();
         });
     }
 
