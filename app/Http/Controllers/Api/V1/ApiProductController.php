@@ -18,7 +18,7 @@ class ApiProductController extends Controller
         return $product;
     }
 
-    public function store(CategoryRequest $request){
+    public function store(ProductRequest $request){
         $product = new Product();
         $product->name = $request->name;
         $product->save();
