@@ -15,6 +15,7 @@ class CreateManufacturersTable extends Migration
     {
         Schema::create('manufacturers', function (Blueprint $table) {
             $table->id();
+            $table->integer('uid')->unique()->nullable();
             $table->string('company');
             $table->string('email');
             $table->string('phone');

@@ -15,6 +15,7 @@ class CreateDeclarationsTable extends Migration
     {
         Schema::create('declarations', function (Blueprint $table) {
             $table->id();
+            $table->integer('uid')->unique()->nullable();
             $table->string('allergen');
             $table->timestamps();
         });

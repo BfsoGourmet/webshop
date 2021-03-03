@@ -24,6 +24,7 @@ class SpecialPrizeFactory extends Factory
     {
         return [
             'product_id' => Product::factory(),
+            'price' => $this->faker->randomFloat(2,10,1000),
             'start' => $this->faker->date(),
             'end' => $this->faker->date(),
         ];
