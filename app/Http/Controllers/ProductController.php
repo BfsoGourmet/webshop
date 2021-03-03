@@ -1,25 +1,29 @@
 <?php
 
-namespace App\Http\Controllers\Api\V1;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductRequest;
 use App\Models\Product;
-use Illuminate\Http\Request;
+use Exception;
+use Illuminate\Contracts\View\View;
+use Illuminate\Routing\Redirector;
 
-class ApiProductController extends Controller
+class ProductController extends Controller
 {
+
     public function index()
     {
-        return Product::get();
+        $products = Product::paginate(15);
+        return view('products.index',['products'=>$products]);
     }
 
-    public function show(int $article_number)
+    public function create()
     {
-        return Product::where('article_number',$article_number)->first();
+        return view('products.create');
     }
 
-    public function store(ProductRequest $request){
+    public function store(ProductRequest $request)
+    {
         $product = new Product();
         $product->uid = $request->uid;
         $product->product = $request->product;
@@ -33,12 +37,23 @@ class ApiProductController extends Controller
         $product->declaration = $request->declaration;
         $product->manufacturer_id = $request->manufacturer_id;
         $product->save();
-        return $product;
+
+        return redirect(view('products.index'))->withSuccess(__('form.successfully-stored'));;
     }
 
-    public function update(ProductRequest $request, int $article_number)
+
+    public function show(Product $product)
     {
-        $product = Product::where('article_number',$article_number)->first();
+        return view('products.show',['product'=>$product]);
+    }
+
+    public function edit(Product $product)
+    {
+        return view('products.edit',['product'=>$product]);
+    }
+
+    public function update(ProductRequest $request, Product $product)
+    {
         $product->uid = $request->uid;
         $product->product = $request->product;
         $product->description = $request->description;
@@ -51,13 +66,14 @@ class ApiProductController extends Controller
         $product->declaration = $request->declaration;
         $product->manufacturer_id = $request->manufacturer_id;
         $product->save();
-        return $product;
+
+        return redirect(route('products.index'))->withSuccess(__('form.successfully-updated'));
     }
 
-    public function destroy(int $article_number)
+    public function destroy(Product $product)
     {
-        $product = Product::where('article_number',$article_number)->first();
         $product->delete();
-        return ['response'=>'successful'];
+        return redirect(route('products.index'))->withSuccess(__('form.successfully-deleted'));
+
     }
 }

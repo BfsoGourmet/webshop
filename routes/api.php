@@ -32,8 +32,8 @@ Route::prefix('v1')->group(function () {
         Route::get('', [ApiProductController::class,'index']);
         Route::get('{article_number}', [ApiProductController::class,'show']); // TODO: change product to artikelnummer
         Route::post('',[ApiProductController::class,'store']);
-        Route::patch('{product}',[ApiProductController::class,'update']);
-        Route::delete('{product}',[ApiProductController::class,'destroy']);
+        Route::patch('{article_number}',[ApiProductController::class,'update']);
+        Route::delete('{article_number}',[ApiProductController::class,'destroy']);
     });
 //    Route::prefix('manufacturers')->group(function () {
 //        Route::get('', [ApiManufacturerController::class,'index']);

@@ -16,7 +16,7 @@ class CreateSpecialPrizesTable extends Migration
         Schema::create('special_prizes', function (Blueprint $table) {
             $table->id();
             $table->integer('uid')->unique()->nullable();
-            $table->foreignId('product_id')->constrained();
+            $table->foreignId('product_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->double('price');
             $table->date('start');
             $table->date('end');
