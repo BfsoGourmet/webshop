@@ -11,6 +11,6 @@ class ProductOrder extends Model
 
     public function order()
     {
-        return $this->belongsTo('App\Models\Order', 'order_id');
+        return $this->belongsTo(Order::class, 'order_id');
     }
 }
