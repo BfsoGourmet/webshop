@@ -31,6 +31,7 @@
 .site-header a {
     color: #999;
     transition: ease-in-out color .15s;
+    text-decoration: none;
 }
 .site-header a:hover {
     color: #fff;
@@ -147,7 +148,7 @@
     left: 0;
     font-weight: 600;
     font-size: 8em;
-    color: rgb(0,0,0,0.1);
+    color: rgba(0,0,0,0.1);
 }
 .card .imgBox{
     position: relative;
@@ -208,6 +209,71 @@
     top: 0;
     opacity: 2;
 }
+
+.card .inside {
+    z-index: 9;
+    background: rgba(132,32,41,0.95);
+    width: 140px;
+    height: 140px;
+    position: absolute;
+    top: -70px;
+    right: -70px;
+    border-radius: 0px 0px 200px 200px;
+    transition: all 0.5s, border-radius 2s, top 1s;
+    overflow: hidden;
+}
+
+.card .inside .icon {
+    position: absolute;
+    right: 85px;
+    top: 85px;
+    color: white;
+    opacity: 1;
+    cursor:pointer;
+
+}
+
+.card .inside:hover {
+    width: 100%;
+    right: 0;
+    top: 0;
+    border-radius: 0;
+    height: 100%;
+    cursor:pointer;
+
+}
+
+.card .inside:hover .icon {
+    opacity: 0;
+    right: 15px;
+    top: 15px;
+}
+
+.card .inside:hover .contents {
+    opacity: 1;
+    transform: scale(1);
+    transform: translateY(0);
+}
+
+.card .inside .contents {
+    padding: 5%;
+    opacity: 0;
+    transform: scale(0.5);
+    transform: translateY(-200%);
+    transition: opacity 0.2s, transform 0.8s;
+}
+
+.card .inside .contents h2,
+.card .inside .contents p {
+    color: white;
+}
+
+.card .inside .contents p {
+    font-size: 13px;
+}
+
+
+
 .page-link{
     color: #842029;
 }
@@ -217,6 +283,10 @@
 .page-link:focus{
     color: #e41729 ;
     box-shadow: 0 0 0 0.25rem rgba(228,23,41,0.25) ;
+}
+.page-item.active .page-link{
+    background-color: #e41729;
+    border-color: #e41729;
 }
 a{
     color: #842029;

@@ -11,6 +11,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 
         <!-- Custom styles for this template -->
         <link rel="stylesheet" href="{{asset('css/products.css')}}">
@@ -27,7 +28,9 @@
                 <a class="py-2 hd-font d-md-inline-block" href="{{route('welcome')}}"><b>Home</b></a>
                 <a class="py-2 hd-font d-md-inline-block" href="{{route('shop_index')}}"><b>Shop</b></a>
                 <a class="py-2 hd-font d-md-inline-block" href="#"><b>About</b></a>
-                <a class="py-2 hd-font d-md-inline-block" href="#"><b>Warenkorb</b></a>
+                <a class="py-2 hd-font d-md-inline-block" href="#"><b>Warenkorb</b>&nbsp;<i class="fas fa-shopping-cart " ></i><sub id="cartCount">0</sub>
+                </a>
+
             </div>
         </nav>
 
