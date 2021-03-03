@@ -14,9 +14,10 @@
 
             <div id="productContainter"> <!-- here will be an Foreach to load the produts-->
                 @foreach($products as $product)
+
                 <div class="card">
                     <div class="imgBox">
-                        <a herf="#"><img src="https://picsum.photos/450/330" alt="[ProdImg]" border="0"></a><!--https://i.ibb.co/YNVDKW3/nike101.png-->
+                        <a herf="#"><img src="https://picsum.photos/id/{{$loop->iteration + 10}}/450/330" alt="[ProdImg]" border="0"></a><!--https://i.ibb.co/YNVDKW3/nike101.png-->
                     </div>
                     <div class="contentBx">
                         <span id="productID" style="display: none" >{{$product->id}}</span>
@@ -27,7 +28,7 @@
                     <div class="inside">
                         <div class="icon"><i class="fas fa-info-circle" style="font-size: 1.7em"></i></div>
                         <div class="contents">
-                            <h2>Description:</h2>
+                            <h2>Beschreibung:</h2>
                             <p>{{$product->description }}</p>
                         </div>
                     </div>
