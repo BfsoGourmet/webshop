@@ -39,23 +39,23 @@
         <div class="deliveryAddress">
             <div class="form-group">
                 <label>Vorname</label>
-                <input type="text" class="form-control" name="first_name">
+                <input type="text" class="form-control" name="firstNameD">
             </div>
             <div class="form-group">
                 <label>Nachname</label>
-                <input type="text" class="form-control" name="last_name">
+                <input type="text" class="form-control" name="lastNameD">
             </div>
             <div class="form-group">
                 <label>Adresse</label>
-                <input type="text" class="form-control" name="address">
+                <input type="text" class="form-control" name="addressD">
             </div>
             <div class="form-group">
                 <label>Postleizahl</label>
-                <input type="text" class="form-control" name="post_code">
+                <input type="text" class="form-control" name="postCodeD">
             </div>
             <div class="form-group">
                 <label>Stadt</label>
-                <input type="text" class="form-control" name="city">
+                <input type="text" class="form-control" name="cityD">
             </div>
         </div>
         <h3>2. Zahlung</h3>
@@ -68,23 +68,23 @@
         <div class="billingAddress" id="billingAddress" style="display:none;">
             <div class="form-group">
                 <label>Vorname</label>
-                <input type="text" class="form-control" name="first_name">
+                <input type="text" class="form-control" name="firstNameB">
             </div>
             <div class="form-group">
                 <label>Nachname</label>
-                <input type="text" class="form-control" name="last_name">
+                <input type="text" class="form-control" name="lastNameB">
             </div>
             <div class="form-group">
                 <label>Adresse</label>
-                <input type="text" class="form-control" name="address">
+                <input type="text" class="form-control" name="addressB">
             </div>
             <div class="form-group">
                 <label>Postleizahl</label>
-                <input type="text" class="form-control" name="post_code">
+                <input type="text" class="form-control" name="postCodeB">
             </div>
             <div class="form-group">
                 <label>Stadt</label>
-                <input type="text" class="form-control" name="city">
+                <input type="text" class="form-control" name="cityB">
             </div>
         </div>
 
