@@ -11,7 +11,7 @@ class CheckoutController extends Controller
     }
 
     public function store(CheckoutRequest $request) {
-        var_dump(request);
+/*        return redirect(route('create'))->withSuccess(__('form.successfully-stored'));*/
     }
 
 }

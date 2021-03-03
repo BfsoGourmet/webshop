@@ -29,8 +29,20 @@ class CheckoutRequest extends FormRequest
     public function rules()
     {
         return [
-            'firstNameB' => 'required',
-            'lastNameB' => 'required',
+            'firstNameDelivery' => 'required',
+            'lastNameDelivery' => 'required',
+            'addressDelivery' => 'required',
+            'cityDelivery' => 'required',
+            'postCodeDelivery"' => 'required',
+            'firstNameBilling' => 'required_if:hasDifferentAddress,on',
+            'lastNameBilling' => 'required_if:hasDifferentAddress,on',
+            'addressBilling' => 'required_if:hasDifferentAddress,on',
+            'postCodeBilling' => 'required_if:hasDifferentAddress,on',
+            'cityBilling' => 'required_if:hasDifferentAddress,on',
+
+
+
+
         ];
     }
 }
