@@ -22,7 +22,7 @@ class ApiOrderController extends Controller
 
     public function show(int $order_id)
     {
-        $order = Order::where('id', '=', $order_id)->with('productOrders', 'customer', 'status', 'shippingAddress', 'billingAddress')->get();
+        $order = Order::where('id', '=', $order_id)->with('productOrders', 'customer', 'status', 'shippingAddress', 'billingAddress')->first();
         return $this->jsonResponse($order);
     }
 }
