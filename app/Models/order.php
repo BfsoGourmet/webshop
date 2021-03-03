@@ -13,22 +13,22 @@ class Order extends Model
 
     public function customer()
     {
-        return $this->belongsTo('App\Models\customer', 'customer_id');
+        return $this->belongsTo('App\Models\Customer', 'customer_id');
     }
 
     public function status()
     {
-        return $this->belongsTo('App\Models\status', 'status_id');
+        return $this->belongsTo('App\Models\Status', 'status_id');
     }
 
     public function shippingAddress()
     {
-        return $this->belongsTo('App\Models\address', 'shipping_address');
+        return $this->belongsTo('App\Models\Address', 'shipping_address');
     }
 
     public function billingAddress()
     {
-        return $this->belongsTo('App\Models\address', 'billing_address');
+        return $this->belongsTo('App\Models\Address', 'billing_address');
     }
 
     public function productOrders(){
