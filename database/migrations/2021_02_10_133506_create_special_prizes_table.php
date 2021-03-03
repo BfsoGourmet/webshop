@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDeclarationsTable extends Migration
+class CreateSpecialPrizesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,12 @@ class CreateDeclarationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('declarations', function (Blueprint $table) {
+        Schema::create('special_prizes', function (Blueprint $table) {
             $table->id();
-            $table->string('allergens');
+            $table->foreignId('product_id')->constrained();
+            $table->date('start');
+            $table->date('end');
+            $table->timestamps();
         });
     }
 
@@ -26,6 +29,6 @@ class CreateDeclarationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('declarations');
+        Schema::dropIfExists('special_prizes');
     }
 }
