@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,3 +19,10 @@ Route::get('/', function () {
 })->name('welcome');;
 Route::get('/shop', [\App\Http\Controllers\ProductController::class, "index"]
 )->name('shop_index');;
+
+Route::resources(
+    [
+        'categories' => CategoryController::class,
+    ]
+);
+
