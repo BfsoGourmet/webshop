@@ -36,8 +36,8 @@
                             }
                         ?>
                         <h2 class="price">CHF&nbsp;<span class="productPrice">{{$price}}</span></h2>
-                        <a href="#" class="details" style="text-transform: none">In den Warenkorb&nbsp;&nbsp;&nbsp;
-                            <i class="fa-xs fas fa-circle" data-toggle="tooltip" data-placement="right" title="Verfügbarkeit" style="text-shadow: 0 0 4px #000;"></i>
+                        <a href="#" class="details" style="text-transform: none">In den Warenkorb&nbsp;&nbsp;
+                            <i class="fa-xs fas fa-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="Verfügbarkeit" style="text-shadow: 0 0 4px #000;"></i>
                         </a><!--was Anzeigen. because we have no details view-->
 
                     </div>
