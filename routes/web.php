@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CheckoutController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,8 +16,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-})->name('welcome');;
+})->name('welcome');
+
+Route::get('/checkout', [CheckoutController::class, 'create']);
+
+Route::post('/checkout', [CheckoutController::class, 'store']);
+
 Route::get('/shop', [\App\Http\Controllers\ProductController::class, "index"]
 )->name('shop_index');;
 
+Route::post("/addToCart",'SessionController@insert');
 Route::post("/addToCart",'SessionController@insert');
