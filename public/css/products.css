@@ -1,0 +1,296 @@
+.container {
+    max-width: 960px;
+}
+
+/*
+ * Custom translucent site header
+ */
+.hd-font{
+    font-size: 20px;
+    letter-spacing: 2.5px;
+    margin-top: 5px;
+}
+.margClass{
+    margin-top: 3rem!important;
+    margin-bottom: 3rem!important;
+}
+.bg-Gvs{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-x: center;
+    background-position-y: inherit;
+}
+
+
+
+.site-header {
+    background-color: rgba(0, 0, 0, .85);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+}
+.site-header a {
+    color: #999;
+    transition: ease-in-out color .15s;
+    text-decoration: none;
+}
+.site-header a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+/*
+ * Dummy devices (replace them with your own or something else entirely!)
+ */
+
+.product-device {
+    position: absolute;
+    right: 10%;
+    bottom: -30%;
+    width: 300px;
+    height: 540px;
+    background-color: #333;
+    border-radius: 21px;
+    -webkit-transform: rotate(30deg);
+    transform: rotate(30deg);
+}
+
+.product-device::before {
+    position: absolute;
+    top: 10%;
+    right: 10px;
+    bottom: 10%;
+    left: 10px;
+    content: "";
+    background-color: rgba(255, 255, 255, .1);
+    border-radius: 5px;
+}
+
+.product-device-2 {
+    top: -25%;
+    right: auto;
+    bottom: 0;
+    left: 5%;
+    background-color: #e5e5e5;
+}
+@media (min-width: 1600px) {
+    .bg-Gvs {
+        height: 966px;
+
+    }
+}
+
+
+/*
+ * Extra utilities
+ */
+
+.border-top { border-top: 1px solid #e5e5e5; }
+.border-bottom { border-bottom: 1px solid #e5e5e5; }
+
+.box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
+
+.flex-equal > * {
+    -ms-flex: 1;
+    -webkit-box-flex: 1;
+    flex: 1;
+}
+@media (min-width: 768px) {
+    .flex-md-equal > * {
+        -ms-flex: 1;
+        -webkit-box-flex: 1;
+        flex: 1;
+    }
+}
+
+.overflow-hidden { overflow: hidden; }
+
+#productContainter{
+    display: flex;
+    margin: 15px 0 15px 0;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.customBorder{
+    margin-top: 20px;
+    border: 5px solid #dee2e6!important;
+    padding: 2px 10px;
+}
+
+
+/* Product Card*/
+.card{
+    position: relative;
+    width: 256px;/*old 320px*/
+    height: 336px;/*old 420px*/
+    background: #323232 !important;
+    border-radius: 20px!important;
+    overflow: hidden;
+    margin: 20px 10px 20px 10px;
+}
+.card::before{
+    content: '';
+    position: absolute;
+    top: -50%;
+    width: 100%;
+    height: 100%;
+    background: #989898;
+    transform: skewY(345deg);
+    transition: 0.5s;
+}
+.card:hover::before{
+    top: -70%;
+    transform: skewY(390deg);
+}
+.card::after{
+    content: "G'Vs";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-weight: 600;
+    font-size: 8em;
+    color: rgba(0,0,0,0.1);
+}
+.card .imgBox{
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+    z-index: 1;
+}
+.card .imgBox img{
+    width: 300px;
+    max-width: 100%;
+    transition: .5s;
+}
+.card:hover .imgBox img{
+    width:250px;
+    margin-top:-20px;
+}
+
+.card .contentBx{
+    position: relative;
+    padding-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 1;
+}
+.card .contentBx h3{
+    font-size: 21px;
+    color: #fff;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.card .contentBx .price{
+    font-size: 24px;
+    color: white;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+.card .contentBx .details{
+    position: relative;
+    top: 200px;
+    opacity: 0;
+    padding: 10px 30px;
+    margin-top: 15px;
+    color: #fff;
+    text-decoration: none;
+    background:#842029;
+    border-radius: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.5s;
+}
+.card:hover .contentBx .details{
+    top: 0;
+    opacity: 2;
+}
+
+.card .inside {
+    z-index: 9;
+    background: rgba(132,32,41,0.95);
+    width: 140px;
+    height: 140px;
+    position: absolute;
+    top: -70px;
+    right: -70px;
+    border-radius: 0px 0px 200px 200px;
+    transition: all 0.5s, border-radius 2s, top 1s;
+    overflow: hidden;
+}
+
+.card .inside .icon {
+    position: absolute;
+    right: 85px;
+    top: 85px;
+    color: white;
+    opacity: 1;
+    cursor:pointer;
+
+}
+
+.card .inside:hover {
+    width: 100%;
+    right: 0;
+    top: 0;
+    border-radius: 0;
+    height: 100%;
+    cursor:pointer;
+
+}
+
+.card .inside:hover .icon {
+    opacity: 0;
+    right: 15px;
+    top: 15px;
+}
+
+.card .inside:hover .contents {
+    opacity: 1;
+    transform: scale(1);
+    transform: translateY(0);
+}
+
+.card .inside .contents {
+    padding: 5%;
+    opacity: 0;
+    transform: scale(0.5);
+    transform: translateY(-200%);
+    transition: opacity 0.2s, transform 0.8s;
+}
+
+.card .inside .contents h2,
+.card .inside .contents p {
+    color: white;
+}
+
+.card .inside .contents p {
+    font-size: 13px;
+}
+
+
+
+.page-link{
+    color: #842029;
+}
+.page-link:hover{
+    color: #e41729;
+}
+.page-link:focus{
+    color: #e41729 ;
+    box-shadow: 0 0 0 0.25rem rgba(228,23,41,0.25) ;
+}
+.page-item.active .page-link{
+    background-color: #e41729;
+    border-color: #e41729;
+}
+a{
+    color: #842029;
+}
+a:hover{
+    color: #e41729;
+}

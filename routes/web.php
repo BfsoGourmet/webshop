@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');;
+Route::get('/shop', [\App\Http\Controllers\ProductController::class, "index"]
+)->name('shop_index');;
 
 Route::post("/addToCart",'SessionController@insert');
