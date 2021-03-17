@@ -57,7 +57,7 @@ class CheckoutController extends Controller
         }
 
         $order->customer = $customerDelivery;
-/*        $order->status = status*/;
+       $order->status_Id = 1;
 
         $order->save();
         return redirect(route('checkout.index'))->withSuccess(__('form.successfully-stored'));
