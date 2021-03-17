@@ -17,6 +17,14 @@
                 <input type="text" class="form-control" name="lastNameDelivery" id="lastNameDelivery">
             </div>
             <div class="form-group">
+                <label>Telefonnummer</label>
+                <input type="text" class="form-control" name="lastNameDelivery" id="phoneDelivery">
+            </div>
+            <div class="form-group">
+                <label>E-Mail</label>
+                <input type="email" class="form-control" name="lastNameDelivery" id="emailDelivery">
+            </div>
+            <div class="form-group">
                 <label>Adresse</label>
                 <input type="text" class="form-control" name="addressDelivery" id="addressDelivery">
             </div>
@@ -44,6 +52,14 @@
             <div class="form-group">
                 <label>Nachname</label>
                 <input type="text" class="form-control" name="lastNameBilling" id="lastNameBilling">
+            </div>
+            <div class="form-group">
+                <label>Telefonnummer</label>
+                <input type="text" class="form-control" name="lastNameDelivery" id="phoneBilling">
+            </div>
+            <div class="form-group">
+                <label>E-Mail</label>
+                <input type="email" class="form-control" name="lastNameDelivery" id="emailBilling">
             </div>
             <div class="form-group">
                 <label>Adresse</label>
