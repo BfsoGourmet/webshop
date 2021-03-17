@@ -23,4 +23,11 @@ Route::get('/checkout', [CheckoutController::class, 'create']);
 Route::post('/checkout', [CheckoutController::class, 'store']);
 
 Route::get('/shop', [\App\Http\Controllers\ProductController::class, "index"]
-)->name('shop_index');
+)->name('shop_index');;
+
+Route::resources(
+    [
+        'categories' => CategoryController::class,
+    ]
+);
+
