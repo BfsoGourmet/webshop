@@ -6,7 +6,6 @@ use App\Http\Requests\CheckoutRequest;
 use App\Models\Address;
 use App\Models\Customer;
 use App\Models\Order;
-use App\Models\Product;
 
 class CheckoutController extends Controller
 {
@@ -57,10 +56,10 @@ class CheckoutController extends Controller
         }
 
         $order->customer = $customerDelivery;
-       $order->status_Id = 1;
+//        $order->status = 1;
 
         $order->save();
-        return redirect(route('checkout.index'))->withSuccess(__('form.successfully-stored'));
+        return redirect(route('checkout.index'));
     }
 
 }
