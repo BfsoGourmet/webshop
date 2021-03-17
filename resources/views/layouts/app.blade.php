@@ -36,7 +36,7 @@
                 <a class="py-2 hd-font d-md-inline-block" href="{{route('welcome')}}"><b>Home</b></a>
                 <a class="py-2 hd-font d-md-inline-block" href="{{route('shop_index')}}"><b>Shop</b></a>
                 <a class="py-2 hd-font d-md-inline-block" href="#"><b>About</b></a>
-                <a class="py-2 hd-font d-md-inline-block" href="#"><b>Warenkorb</b>&nbsp;<i class="fas fa-shopping-cart " ></i><sub id="cartCount">0</sub>
+                <a class="py-2 hd-font d-md-inline-block" href="{{route('cart')}}"><b>Warenkorb</b>&nbsp;<i class="fas fa-shopping-cart " ></i><sub id="cartCount">0</sub>
                 </a>
 
             </div>

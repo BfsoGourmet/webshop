@@ -20,6 +20,10 @@ Route::get('/', function () {
 Route::get('/shop', [\App\Http\Controllers\ProductController::class, "index"]
 )->name('shop_index');;
 
+Route::get('/cart', [\App\Http\Controllers\CartController::class, "cart"]
+)->name('cart');;
+
+
 Route::resources(
     [
         'categories' => CategoryController::class,
