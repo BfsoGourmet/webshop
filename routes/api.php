@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\Api\V1\ApiOrderController;
 use App\Http\Controllers\Api\V1\ApiCategoryController;
 use App\Http\Controllers\Api\V1\ApiProductController;
 use Illuminate\Http\Request;
@@ -21,6 +21,17 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::prefix('v1')->group(function () {
+    Route::prefix('orders')->group(function () {
+        Route::get('', [ApiOrderController::class,'index']);
+        Route::get('{order_id}', [ApiOrderController::class,'show']);
+    });
+});
+
+Route::prefix('v1')->group(function () {
+    Route::prefix('orders')->group(function () {
+        Route::get('', [ApiOrderController::class,'index']);
+        Route::get('{order_id}', [ApiOrderController::class,'show']);
+    });
     Route::prefix('categories')->group(function () {
         Route::get('', [ApiCategoryController::class,'index']);
         Route::get('{uid}', [ApiCategoryController::class,'show']);
@@ -43,5 +54,3 @@ Route::prefix('v1')->group(function () {
 //        Route::delete('{manufacturer}',[ApiManufacturerController::class,'destroy']);
 //    });
 });
-
-
