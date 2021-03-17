@@ -13,6 +13,6 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::paginate(15);
-        return view('categories.index', ['products' => $products]);
+        return view('products.index', ['products' => $products]);
     }
 }
