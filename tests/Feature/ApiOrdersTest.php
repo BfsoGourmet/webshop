@@ -16,7 +16,7 @@ class ApiOrdersTest extends TestCase
      */
     public function get_all_orders()
     {
-        ProductOrder::factory(1)->create();
+        ProductOrder::factory(10)->create();
 
         $response = $this->getJson('/api/v1/orders', []);
 
@@ -42,7 +42,7 @@ class ApiOrdersTest extends TestCase
      */
     public function get_all_orders_from_last_order_id()
     {
-        $orders = ProductOrder::factory(1)->create()->map(function ($product_order) {
+        $orders = ProductOrder::factory(10)->create()->map(function ($product_order) {
             return [
                 'id' => $product_order->order->id,
                 'customer' => $product_order->order->customer->only(['id', 'email', 'phone', 'firstname', 'lastname']),
