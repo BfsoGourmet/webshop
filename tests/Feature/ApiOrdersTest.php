@@ -16,21 +16,23 @@ class ApiOrdersTest extends TestCase
      */
     public function get_all_orders()
     {
-        ProductOrder::factory(10)->create();
+        ProductOrder::factory(1)->create();
 
         $response = $this->getJson('/api/v1/orders', []);
 
         $response
             ->assertStatus(200)
             ->assertJsonStructure([
-                '*' => [
-                    'id',
-                    'customer' => ['id', 'email', 'phone', 'firstname', 'lastname'],
-                    'status' => ['id', 'state'],
-                    'shipping_address' => ['id', 'address', 'zipcode', 'city', 'country', 'customer_id'],
-                    'billing_address' => ['id', 'address', 'zipcode', 'city', 'country', 'customer_id'],
-                    'product_orders' => ['*' => ['id', 'amount', 'order_id', 'product_id']]
-                ],
+                'orders' => [
+                    '*' => [
+                        'id',
+                        'customer' => ['id', 'email', 'phone', 'firstname', 'lastname'],
+                        'status' => ['id', 'state'],
+                        'shipping_address' => ['id', 'address', 'zipcode', 'city', 'country', 'customer_id'],
+                        'billing_address' => ['id', 'address', 'zipcode', 'city', 'country', 'customer_id'],
+                        'product_orders' => ['*' => ['id', 'amount', 'order_id', 'product_id']]
+                    ],
+                ]
             ]);
     }
 
@@ -40,7 +42,7 @@ class ApiOrdersTest extends TestCase
      */
     public function get_all_orders_from_last_order_id()
     {
-        $orders = ProductOrder::factory(10)->create()->map(function ($product_order) {
+        $orders = ProductOrder::factory(1)->create()->map(function ($product_order) {
             return [
                 'id' => $product_order->order->id,
                 'customer' => $product_order->order->customer->only(['id', 'email', 'phone', 'firstname', 'lastname']),
@@ -57,16 +59,18 @@ class ApiOrdersTest extends TestCase
 
         $response
             ->assertStatus(200)
-            ->assertJson($orders->toArray())
+            ->assertJson(['orders' => $orders->toArray()])
             ->assertJsonStructure([
-                '*' => [
-                    'id',
-                    'customer' => ['id', 'email', 'phone', 'firstname', 'lastname'],
-                    'status' => ['id', 'state'],
-                    'shipping_address' => ['id', 'address', 'zipcode', 'city', 'country', 'customer_id'],
-                    'billing_address' => ['id', 'address', 'zipcode', 'city', 'country', 'customer_id'],
-                    'product_orders' => ['*' => ['id', 'amount', 'order_id', 'product_id']]
-                ],
+                'orders' => [
+                    '*' => [
+                        'id',
+                        'customer' => ['id', 'email', 'phone', 'firstname', 'lastname'],
+                        'status' => ['id', 'state'],
+                        'shipping_address' => ['id', 'address', 'zipcode', 'city', 'country', 'customer_id'],
+                        'billing_address' => ['id', 'address', 'zipcode', 'city', 'country', 'customer_id'],
+                        'product_orders' => ['*' => ['id', 'amount', 'order_id', 'product_id']]
+                    ],
+                ]
             ]);
     }
 
