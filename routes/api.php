@@ -26,13 +26,6 @@ Route::prefix('v1')->group(function () {
         Route::get('', [ApiOrderController::class,'index']);
         Route::get('{order_id}', [ApiOrderController::class,'show']);
     });
-});
-
-Route::prefix('v1')->group(function () {
-    Route::prefix('orders')->group(function () {
-        Route::get('', [ApiOrderController::class,'index']);
-        Route::get('{order_id}', [ApiOrderController::class,'show']);
-    });
     Route::prefix('categories')->group(function () {
         Route::get('', [ApiCategoryController::class,'index']);
         Route::get('{uid}', [ApiCategoryController::class,'show']);
