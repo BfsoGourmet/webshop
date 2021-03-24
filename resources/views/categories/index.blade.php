@@ -22,7 +22,7 @@
                         <span id="productID" style="display: none" >{{$product->id}}</span>
                         <h3 class="productName">{{$product->product}}</h3>
                         <h2 class="price">CHF&nbsp;<span class="productPrice">{{$product->price}}</span></h2>
-                        <form method="post" action="{{route('add')}}"> <!-- id="{{$product->id}}" name="{{$product->id}}"-->
+                        <form method="post" action="{{route('add')}}">
                             {{ csrf_field() }}
                             <input name="id" type="hidden" value="{{$product->id}}">
                             <input type="submit" value="In den Warenkorb" style="text-transform: none" class="details">

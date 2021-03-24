@@ -8,29 +8,46 @@ use Illuminate\Http\Request;
 
 class SessionController extends Controller
 {
-    function addItem(SessionRequest $request){
-        $cart=$request->session()->pull('cart',function(){
-            return array();
-        });
-        if(in_array($request->id,$cart)){
-            $amount =$cart[$request->id];
+    function getCart(SessionRequest $request){
+        if($request->session()->has('cart')){
+            $cart=$request->session()->pull('cart');
         }
         else{
-            $amount =1;
+            $cart=[];
         }
-        //$item=array($request->input('id'),$amount);
-        array_push($cart,[$request->id =>$amount]);
-        $request->session()->flash('cart', $cart);
+        return $cart;
     }
 
-    function removeItem(SessionRequest $request){
-        $cart=$request->session()->pull('cart');
-        --$cart[$request->id];
+    function add(SessionRequest $request){
+        $cart=$this->getCart($request);
+
+        if(isset($cart[$request->id])){
+            ++$cart[$request->id][1];
+        }
+        else{
+            $cart[$request->id][0]=$request->id;
+            $cart[$request->id][1]=1;
+        }
+
+        $request->session()->put('cart', $cart);
+        dd($cart);
+    }
+
+    function remove(SessionRequest $request){
+        $cart=$this->getCart($request);
+        if(isset($cart[$request->id])){
+            if($cart[$request->id][1]==1){
+                unset($cart[$request->id]);
+            }
+            else{
+                --$cart[$request->id][1];
+            }
+        }
         $request->session()->flash('cart', $cart);
     }
 
     function delete(SessionRequest $request){
-        $cart=$request->session()->pull('cart');
+        $cart=$this->getCart($request);
         unset($cart[$request->id]);
         $request->session()->flash('cart', $cart);
     }
@@ -38,13 +55,5 @@ class SessionController extends Controller
     function deleteAll(SessionRequest $request){
         $request->session()->forget('cart');
         $request->session()->flush();
-    }
-
-    function deleteSession(SessionRequest $request){
-
-    }
-
-    function getSessionCart(){
-        return true;
     }
 }
