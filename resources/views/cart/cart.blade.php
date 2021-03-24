@@ -12,16 +12,16 @@
         </tr>
         </thead>
         <tbody>
-            <tr>
+            <tr class="item">
                 <td>
-                    <p>APPLE iPhone 12 - Smartphone (6.1 ", 128 GB, Black)</p><br> <img src="https://i.ibb.co/YNVDKW3/nike101.png" alt="[ProdImg]" border="0"  style="max-width:150px;">
+                    <p id="titel">APPLE iPhone 12 - Smartphone (6.1 ", 128 GB, Black)</p><br> <img src="https://i.ibb.co/YNVDKW3/nike101.png" alt="[ProdImg]" border="0"  style="max-width:150px;">
                 </td>
-                <td>CHF 999.99</td>
+                <td><p>CHF <span id="price">999.99</span></p></td>
                 <td>
                     <select class="form-select" aria-label="" style="width: 65%">
                         <option value="0">Entfernen</option>
-                        <option selected value="1">1</option>
-                        <option value="2">2</option>
+                        <option value="1">1</option>
+                        <option selected value="2">2</option>
                         <option value="3">3</option>
                         <option value="4">4</option>
                         <option value="5">5</option>
@@ -33,7 +33,7 @@
 
                     </select>
                 </td>
-                <td>CHF 999.99</td>
+                <td>CHF <span id="quantity_price">999.99</span></td>
             </tr>
 
         </tbody>
@@ -62,8 +62,16 @@
 </div>
 <script>
     $( document ).ready(function() {
-        
 
+        $( ".item" ).each(function( index ) {
+            var price = parseInt($( this ).find("#price").text());
+            var quantity = $( this ).find(".form-select").find(":selected").val();
+            console.log("price: " + price);
+            console.log("qunatity: " + quantity);
+            var quantity_price = price * quantity;
+            console.log("quantity_price: " + quantity_price);
+        });
+        var total_price
 
     });
 </script>
