@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+    @include('partials.errors')
 
     <div class="container">
     <h1>Checkout</h1>
@@ -15,6 +16,14 @@
             <div class="form-group">
                 <label>Nachname</label>
                 <input type="text" class="form-control" name="lastNameDelivery" id="lastNameDelivery">
+            </div>
+            <div class="form-group">
+                <label>Telefonnummer</label>
+                <input type="text" class="form-control" name="phoneDelivery" id="phoneDelivery">
+            </div>
+            <div class="form-group">
+                <label>E-Mail</label>
+                <input type="email" class="form-control" name="emailDelivery" id="emailDelivery">
             </div>
             <div class="form-group">
                 <label>Adresse</label>
@@ -44,6 +53,14 @@
             <div class="form-group">
                 <label>Nachname</label>
                 <input type="text" class="form-control" name="lastNameBilling" id="lastNameBilling">
+            </div>
+            <div class="form-group">
+                <label>Telefonnummer</label>
+                <input type="text" class="form-control" name="phoneBilling" id="phoneBilling">
+            </div>
+            <div class="form-group">
+                <label>E-Mail</label>
+                <input type="email" class="form-control" name="emailBilling" id="emailBilling">
             </div>
             <div class="form-group">
                 <label>Adresse</label>
