@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\SessionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,5 +26,5 @@ Route::post('/checkout', [CheckoutController::class, 'store']);
 Route::get('/shop', [\App\Http\Controllers\ProductController::class, "index"]
 )->name('shop_index');;
 
-Route::post("/addToCart",'SessionController@insert');
-Route::post("/addToCart",'SessionController@insert');
+Route::post("/cart/add",[SessionController::class, 'add'])->name('add');
+//Route::post("/addToCart",'SessionController@insert');

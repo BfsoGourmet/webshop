@@ -14,7 +14,6 @@
 
             <div id="productContainter"> <!-- here will be an Foreach to load the produts-->
                 @foreach($products as $product)
-
                 <div class="card">
                     <div class="imgBox">
                         <a herf="#"><img src="https://picsum.photos/id/{{$loop->iteration + 10}}/450/330" alt="[ProdImg]" border="0"></a><!--https://i.ibb.co/YNVDKW3/nike101.png-->
@@ -23,7 +22,11 @@
                         <span id="productID" style="display: none" >{{$product->id}}</span>
                         <h3 class="productName">{{$product->product}}</h3>
                         <h2 class="price">CHF&nbsp;<span class="productPrice">{{$product->price}}</span></h2>
-                        <a href="#" class="details" style="text-transform: none">In den Warenkorb</a><!--was Anzeigen. because we have no details view-->
+                        <form method="post" action="{{route('add')}}"> <!-- id="{{$product->id}}" name="{{$product->id}}"-->
+                            {{ csrf_field() }}
+                            <input name="id" type="hidden" value="{{$product->id}}">
+                            <input type="submit" value="In den Warenkorb" style="text-transform: none" class="details">
+                        </form>
                     </div>
                     <div class="inside">
                         <div class="icon"><i class="fas fa-info-circle" style="font-size: 1.7em"></i></div>
