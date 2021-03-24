@@ -57,7 +57,7 @@ class CheckoutController extends Controller
 
         $order->customer = $customerDelivery;
 //        $order->status = 1;
-
+        dd($order);
         $order->save();
         return redirect(route('checkout.index'));
     }
