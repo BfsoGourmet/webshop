@@ -14,52 +14,60 @@ class CheckoutController extends Controller
     }
 
     public function store(CheckoutRequest $request) {
-        $order = new order();
-        $deliveryAddress = new address();
+        $order = new Order();
+        $deliveryAddress = new Address();
         $deliveryAddress->address = $request->addressDelivery;
         $deliveryAddress->zipcode = $request->postCodeDelivery;
         $deliveryAddress->city = $request->cityDelivery;
+        $deliveryAddress->country = "CH";
 
-        $customerDelivery = new customer();
+
+
+        $customerDelivery = new Customer();
         $customerDelivery->firstname = $request->firstNameDelivery;
         $customerDelivery->lastname = $request->lastNameDelivery;
         $customerDelivery->phone = $request->phoneDelivery;
         $customerDelivery->email = $request->emailDelivery;
+        $customerDelivery->save();
 
-        $deliveryAddress->customer = $customerDelivery;
+        $deliveryAddress->customer_id = $customerDelivery->id;
 
-        $order->shipping_address = $deliveryAddress;
+        $deliveryAddress->save();
+
+        $order->shipping_address = $deliveryAddress->id;
 
         if($request->hasDifferentAddress == false){
 
-            $order->billing_address = $deliveryAddress;
+            $order->billing_address = $deliveryAddress->id;
 
         }
 
         else {
 
-            $billingAddress = new address();
+            $billingAddress = new Address();
             $billingAddress->address = $request->addressBilling;
             $billingAddress->zipcode = $request->postCodeBilling;
             $billingAddress->city = $request->cityBilling;
+            $billingAddress->country = "CH";
 
-            $customerBilling = new customer();
+            $customerBilling = new Customer();
             $customerBilling->firstname = $request->firstNameBilling;
             $customerBilling->lastname = $request->lastNameBilling;
             $customerBilling->phone = $request->phoneBilling;
             $customerBilling->email = $request->emailBilling;
+            $customerBilling->save();
 
-            $billingAddress->customer = $customerBilling;
+            $billingAddress->customer_id = $customerBilling->id;
 
-            $order->billing_address = $billingAddress;
+            $billingAddress->save();
+
+            $order->billing_address = $billingAddress->id;
 
         }
 
-        $order->customer = $customerDelivery;
-//        $order->status = 1;
-        dd($order);
+        $order->customer_id = $customerDelivery->id;
+        $order->status_id = 1;
         $order->save();
-        return redirect(route('checkout.index'));
     }
 
 }

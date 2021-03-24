@@ -34,7 +34,7 @@ class CheckoutRequest extends FormRequest
             'phoneDelivery' => 'required',
             'emailDelivery' => 'required',
             'addressDelivery' => 'required|max:100',
-            'postCodeDelivery"' => 'required|max:4',
+            'postCodeDelivery' => 'required|max:4',
             'cityDelivery' => 'required|max:100',
             'firstNameBilling' => 'required_with:hasDifferentAddress,on|max:100',
             'lastNameBilling' => 'required_with:hasDifferentAddress,on|max:100',
