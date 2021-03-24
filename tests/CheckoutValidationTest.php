@@ -2,7 +2,6 @@
 
 namespace Tests;
 
-use Illuminate\Database\Eloquent\Factories\Sequence;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -17,7 +16,7 @@ class CheckoutValidationTest extends TestCase
      */
     public function test_without_different_BillingAddress()
     {
-	    $response = $this->post(route('checkout'), [
+	    $response = $this->post(route('/checkout'), [
 		    'firstNameDelivery' => 'Hans',
 		    'lastNameDelivery' => 'Muster',
 		    'addressDelivery' => 'Musterstrasse 9',
@@ -27,9 +26,12 @@ class CheckoutValidationTest extends TestCase
 	    $response->assertSessionHasNoErrors();
     }
 
+    /**
+     * @test
+     */
     public function test_with_different_BillingAddress()
     {
-	    $response = $this->post(route('checkout'), [
+	    $response = $this->post(route('/checkout'), [
 		    'firstNameDelivery' => 'Hans',
 		    'lastNameDelivery' => 'Muster',
 		    'addressDelivery' => 'Musterstrasse 9',
