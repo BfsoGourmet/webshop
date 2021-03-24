@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class SessionController extends Controller
 {
-    function getCart(SessionRequest $request){
+    function getCart(Request $request){
         if($request->session()->has('cart')){
             $cart=$request->session()->pull('cart');
         }
@@ -30,7 +30,6 @@ class SessionController extends Controller
         }
 
         $request->session()->put('cart', $cart);
-        dd($cart);
     }
 
     function remove(SessionRequest $request){

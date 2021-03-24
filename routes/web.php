@@ -33,8 +33,6 @@ Route::post("/cart/add",[SessionController::class, 'add'])->name('addOne');
 Route::post("/cart/remove",[SessionController::class, 'remove'])->name('removeOne');
 Route::post("/cart/delete",[SessionController::class, 'delete'])->name('delete');
 Route::post("/cart/empty",[SessionController::class, 'removeAll'])->name('empty');
-Route::post("/cart/empty",[SessionController::class, 'removeAll'])->name('empty');
-
 
 Route::resources(
     [
