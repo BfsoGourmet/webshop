@@ -36,7 +36,7 @@
                 <a class="py-2 hd-font d-md-inline-block" href="{{route('welcome')}}"><b>Home</b></a>
                 <a class="py-2 hd-font d-md-inline-block" href="{{route('shop_index')}}"><b>Shop</b></a>
                 <a class="py-2 hd-font d-md-inline-block" href="#"><b>About</b></a>
-                <a class="py-2 hd-font d-md-inline-block" href="#"><b>Warenkorb</b>&nbsp;<i class="fas fa-shopping-cart " ></i><sub id="cartCount">0</sub>
+                <a class="py-2 hd-font d-md-inline-block" href="{{route('cart')}}"><b>Warenkorb</b>&nbsp;<i class="fas fa-shopping-cart " ></i><sub id="cartCount">0</sub>
                 </a>
 
             </div>
@@ -89,6 +89,5 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-
     </body>
 </html>

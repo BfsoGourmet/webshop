@@ -7,6 +7,21 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+## Install Project
+
+1. Start Apache and MySQL with XAMPP
+2. cd c:xampp/htdocs
+3. git clone https://github.com/BfsoGourmet/webshop.git
+4. cd webshop
+5. git checkout feature/...
+6. composer install
+7. cp .env.example .env
+8. Change database in .env to webshop (DB_DATABASE=webshop)
+9. php artisan key:generate
+10. Create new database with name webshop
+11. php artisan migrate
+12. php artisan db:seed
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:

@@ -17,7 +17,7 @@ class ApiOrderController extends Controller
         else {
             $orders = Order::with('productOrders', 'customer', 'status', 'shippingAddress', 'billingAddress')->get();
         }
-        return $this->jsonResponse($orders);
+        return $this->jsonResponse(['orders' => $orders]);
     }
 
     public function show(int $order_id)

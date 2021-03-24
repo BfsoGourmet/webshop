@@ -23,14 +23,16 @@ class ApiOrdersTest extends TestCase
         $response
             ->assertStatus(200)
             ->assertJsonStructure([
-                '*' => [
-                    'id',
-                    'customer' => ['id', 'email', 'phone', 'firstname', 'lastname'],
-                    'status' => ['id', 'state'],
-                    'shipping_address' => ['id', 'address', 'zipcode', 'city', 'country', 'customer_id'],
-                    'billing_address' => ['id', 'address', 'zipcode', 'city', 'country', 'customer_id'],
-                    'product_orders' => ['*' => ['id', 'amount', 'order_id', 'product_id']]
-                ],
+                'orders' => [
+                    '*' => [
+                        'id',
+                        'customer' => ['id', 'email', 'phone', 'firstname', 'lastname'],
+                        'status' => ['id', 'state'],
+                        'shipping_address' => ['id', 'address', 'zipcode', 'city', 'country', 'customer_id'],
+                        'billing_address' => ['id', 'address', 'zipcode', 'city', 'country', 'customer_id'],
+                        'product_orders' => ['*' => ['id', 'amount', 'order_id', 'product_id']]
+                    ],
+                ]
             ]);
     }
 
@@ -57,16 +59,18 @@ class ApiOrdersTest extends TestCase
 
         $response
             ->assertStatus(200)
-            ->assertJson($orders->toArray())
+            ->assertJson(['orders' => $orders->toArray()])
             ->assertJsonStructure([
-                '*' => [
-                    'id',
-                    'customer' => ['id', 'email', 'phone', 'firstname', 'lastname'],
-                    'status' => ['id', 'state'],
-                    'shipping_address' => ['id', 'address', 'zipcode', 'city', 'country', 'customer_id'],
-                    'billing_address' => ['id', 'address', 'zipcode', 'city', 'country', 'customer_id'],
-                    'product_orders' => ['*' => ['id', 'amount', 'order_id', 'product_id']]
-                ],
+                'orders' => [
+                    '*' => [
+                        'id',
+                        'customer' => ['id', 'email', 'phone', 'firstname', 'lastname'],
+                        'status' => ['id', 'state'],
+                        'shipping_address' => ['id', 'address', 'zipcode', 'city', 'country', 'customer_id'],
+                        'billing_address' => ['id', 'address', 'zipcode', 'city', 'country', 'customer_id'],
+                        'product_orders' => ['*' => ['id', 'amount', 'order_id', 'product_id']]
+                    ],
+                ]
             ]);
     }
 

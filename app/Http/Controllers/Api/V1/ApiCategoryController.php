@@ -20,17 +20,21 @@ class ApiCategoryController extends Controller
     }
 
     public function store(CategoryRequest $request){
-        $category = new Category();
-        $category->uid = $request->uid;
-        $category->name = $request->name;
-        $category->save();
-        return $category;
+        $tmpArray = array();
+        foreach($request->categories as $entry){
+            $category = Category::firstOrNew(['uid' => $entry['uid']]);
+            $category->uid = $entry['uid'];
+            $category->category = $entry['category'];
+            $category->save();
+            array_push($tmpArray,Category::where('uid',$entry['uid'])->first());
+        }
+        return $tmpArray;
     }
 
     public function update(CategoryRequest $request, int $uid)
     {
         $category = Category::where('uid',$uid)->first();
-        $category->name = $request->name;
+        $category->category = $request->category;
         $category->save();
         return $category;
     }
