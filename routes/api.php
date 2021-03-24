@@ -2,6 +2,7 @@
 use App\Http\Controllers\Api\V1\ApiOrderController;
 use App\Http\Controllers\Api\V1\ApiCategoryController;
 use App\Http\Controllers\Api\V1\ApiProductController;
+use App\Http\Controllers\Api\V1\ApiManufacturerController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -25,13 +26,6 @@ Route::prefix('v1')->group(function () {
         Route::get('', [ApiOrderController::class,'index']);
         Route::get('{order_id}', [ApiOrderController::class,'show']);
     });
-});
-
-Route::prefix('v1')->group(function () {
-    Route::prefix('orders')->group(function () {
-        Route::get('', [ApiOrderController::class,'index']);
-        Route::get('{order_id}', [ApiOrderController::class,'show']);
-    });
     Route::prefix('categories')->group(function () {
         Route::get('', [ApiCategoryController::class,'index']);
         Route::get('{uid}', [ApiCategoryController::class,'show']);
@@ -43,14 +37,10 @@ Route::prefix('v1')->group(function () {
         Route::get('', [ApiProductController::class,'index']);
         Route::get('{article_number}', [ApiProductController::class,'show']); // TODO: change product to artikelnummer
         Route::post('',[ApiProductController::class,'store']);
-        Route::patch('{product}',[ApiProductController::class,'update']);
-        Route::delete('{product}',[ApiProductController::class,'destroy']);
+        Route::patch('{article_number}',[ApiProductController::class,'update']);
+        Route::delete('{article_number}',[ApiProductController::class,'destroy']);
     });
-//    Route::prefix('manufacturers')->group(function () {
-//        Route::get('', [ApiManufacturerController::class,'index']);
-//        Route::get('{manufacturer}', [ApiManufacturerController::class,'show']);
-//        Route::post('',[ApiManufacturerController::class,'store']);
-//        Route::patch('{manufacturer}',[ApiManufacturerController::class,'update']);
-//        Route::delete('{manufacturer}',[ApiManufacturerController::class,'destroy']);
-//    });
+    Route::prefix('manufacturers')->group(function () {
+        Route::post('',[ApiManufacturerController::class,'store']);
+    });
 });
