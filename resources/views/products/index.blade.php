@@ -38,7 +38,7 @@
                         <a href="#" class="details buttonsubmit" style="text-transform: none">In den Warenkorb&nbsp;&nbsp;
                             <i class="fa-xs fas fa-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="Verfügbarkeit" style="color:#4dff4d;text-shadow: 0 0 4px #000;"></i>
                         </a><!--was Anzeigen. because we have no details view-->
-                        <form class="hiddenfrom" method="post" style="display: none">
+                        <form class="hiddenfrom" method="post" style="display: none" action="{{route('addOne')}}">
                             {{ csrf_field() }}
                             <input name="id" type="hidden" value="{{$product->id}}">
                             <input type="submit" value="In den Warenkorb" style="text-transform: none" class="details">
